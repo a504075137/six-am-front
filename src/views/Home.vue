@@ -16,7 +16,9 @@
 export default {
     name: "home",
     components: {},
-    mounted() {}
+    mounted() {
+        console.log(1);
+    }
 };
 </script>
 <style lang="less" scoped>

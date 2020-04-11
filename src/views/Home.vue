@@ -65,7 +65,9 @@ export default {
         chanIndex(index) {
             this.activeIndex = index;
         },
-        clickMore () {},
+        clickMore () {
+            this.$router.push('/home/recommend')
+        },
         changeList() {}
     }
 };

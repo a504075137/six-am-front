@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Home from '../views/Home.vue'
+import Recommend from '../views/HomeRecommend.vue'
 import Mine from '../views/Mine.vue'
 import Social from '../views/Social.vue'
 import Study from '../views/Study.vue'
@@ -14,6 +15,11 @@ const routes = [
     path: '/home',
     name: 'home',
     component: Home
+  },
+  {
+    path: '/home/recommend',
+    name: 'recommend',
+    component: Recommend
   },
   {
     path: '/mine',

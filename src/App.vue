@@ -67,11 +67,12 @@ body {
   height: 100%;
 }
 #app {
-  .page();
+  margin-bottom: 0.98rem;
+  // .page();
   > .footer {
     .wh(100vw, 0.98rem);
     .flex(space-around);
-    .p-a();
+    .p-f();
     bottom: 0;
     z-index: 9999;
     background-color: #ffffff;

@@ -30,37 +30,31 @@ export default {
 
 <style lang="less" scoped>
 .content {
-  .wh(100vw, 3.8rem);
+  background: #fff;
+  .wh(100vw, 3.72rem);
   .flex-column(space-between);
-  padding-top: 0.3rem;
+  margin-top: 0.22rem;
   > .tab {
-    .wh(100vw, 0.34rem);
+    .wh(100vw, 0.80rem);
     .flex(space-between);
     > .title {
       height: 100%;
       font-size: 0.36rem;
-      font-weight: bold;
-      font-stretch: normal;
-      line-height: 0.34rem;
-      letter-spacing: 0px;
+      line-height: 0.80rem;
       color: #000000;
-      margin-left: 0.3rem;
+      margin-left: 0.32rem;
     }
     > .search {
-      height: 0.19rem;
-      font-family: SimHei;
       font-size: 0.2rem;
-      font-weight: normal;
-      font-stretch: normal;
-      line-height: 0.36rem;
-      letter-spacing: 0px;
+      line-height: 0.80rem;
       color: #989898;
-      margin-right: 0.3rem;
+      margin-right: 0.32rem;
     }
   }
   > .mysocial {
     .flex(space-around);
-    .wh(100vw, 2.82rem);
+    .wh(100vw, 2.70rem);
+    padding-bottom: 0.21rem;
     > .content {
       .wh(1.78rem, 100%);
       .flex-column(space-between);

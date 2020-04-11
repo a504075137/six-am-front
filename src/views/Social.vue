@@ -19,8 +19,8 @@
             </div>
         </header>
         <section class="section">
-            <Socialwatch v-show="activeTab === 1"/>
-            <Socialrecom v-show="activeTab === 2" />
+            <Socialwatch v-show="activeTab === 1" :userData="watchUser"/>
+            <Socialrecom v-show="activeTab === 2" :userData="recomUser"/>
             <Socialperson v-show="activeTab === 3" :userData="userData"/>
         </section>
     </div>
@@ -29,9 +29,9 @@
 <script>
 // @ is an alias to /src
 // import HelloWorld from "@/components/HelloWorld.vue";
-import Socialperson from "@c/Socialperson";
-import Socialrecom from "@c/Socialrecom";
-import Socialwatch from "@c/Sociawatch";
+import Socialperson from "@c/social/Socialperson";
+import Socialrecom from "@c/social/Socialrecom";
+import Socialwatch from "@c/social/Sociawatch";
 export default {
     name: "social",
     components: {
@@ -43,11 +43,13 @@ export default {
         return {
             activeTab: 1,
             activeFoot: 0,
-            userData: [
+            watchUser: [
                 {
                     name: '本人用户名',
                     time: '今天 10.33',
                     title: '用户动态的标题',
+                    avaturl: '#fff45c',
+                    imgurl: '#fff45c',
                     content: '内容摘要内容摘要内容摘要内容摘要内容摘要内容摘要内容摘要内容摘要内容摘要内容摘要内容摘要内容摘要内容摘要内容摘要内容摘要内容摘要内容摘要内容摘要内容摘要',
                     shareTime: 9,
                     likeTime: 3,
@@ -57,6 +59,58 @@ export default {
                     name: '本人用户名',
                     time: '今天 10.33',
                     title: '用户动态的标题',
+                    avaturl: '#f19ec2',
+                    imgurl: '#f19ec2',
+                    content: '内容摘要内容摘要内容摘要内容摘要内容摘要内容摘要内容摘要内容摘要内容摘要内容摘要内容摘要内容摘要内容摘要内容摘要内容摘要内容摘要内容摘要内容摘要内容摘要',
+                    shareTime: 9,
+                    likeTime: 3,
+                    id: 2
+                }
+            ],
+            recomUser: [
+                {
+                    name: '本人用户名',
+                    time: '今天 10.33',
+                    title: '用户动态的标题',
+                    avaturl: '#f39800',
+                    imgurl: '#f39800',
+                    toLook: true,
+                    content: '内容摘要内容摘要内容摘要内容摘要内容摘要内容摘要内容摘要内容摘要内容摘要内容摘要内容摘要内容摘要内容摘要内容摘要内容摘要内容摘要内容摘要内容摘要内容摘要',
+                    shareTime: 9,
+                    likeTime: 3,
+                    id: 1
+                },
+                {
+                    name: '本人用户名',
+                    time: '今天 10.33',
+                    title: '用户动态的标题',
+                    avaturl: '#1f7beb',
+                    imgurl: '#1f7beb',
+                    toLook: true,
+                    content: '内容摘要内容摘要内容摘要内容摘要内容摘要内容摘要内容摘要内容摘要内容摘要内容摘要内容摘要内容摘要内容摘要内容摘要内容摘要内容摘要内容摘要内容摘要内容摘要',
+                    shareTime: 9,
+                    likeTime: 3,
+                    id: 2
+                }
+            ],
+            userData: [
+                {
+                    name: '本人用户名',
+                    time: '今天 10.33',
+                    title: '用户动态的标题',
+                    avaturl: '#f39800',
+                    imgurl: '#f39800',
+                    content: '内容摘要内容摘要内容摘要内容摘要内容摘要内容摘要内容摘要内容摘要内容摘要内容摘要内容摘要内容摘要内容摘要内容摘要内容摘要内容摘要内容摘要内容摘要内容摘要',
+                    shareTime: 9,
+                    likeTime: 3,
+                    id: 1
+                },
+                {
+                    name: '本人用户名',
+                    time: '今天 10.33',
+                    title: '用户动态的标题',
+                    avaturl: '#f39800',
+                    imgurl: '#f39800',
                     content: '内容摘要内容摘要内容摘要内容摘要内容摘要内容摘要内容摘要内容摘要内容摘要内容摘要内容摘要内容摘要内容摘要内容摘要内容摘要内容摘要内容摘要内容摘要内容摘要',
                     shareTime: 9,
                     likeTime: 3,
@@ -66,6 +120,8 @@ export default {
                     name: '本人用户名',
                     time: '今天 10.33',
                     title: '用户动态的标题',
+                    avaturl: '#f39800',
+                    imgurl: '#f39800',
                     content: '内容摘要内容摘要内容摘要内容摘要内容摘要内容摘要内容摘要内容摘要内容摘要内容摘要内容摘要内容摘要内容摘要内容摘要内容摘要内容摘要内容摘要内容摘要内容摘要',
                     shareTime: 9,
                     likeTime: 3,
@@ -110,9 +166,7 @@ export default {
         > .tab {
             .wh(100vw, 0.6rem);
             .p-a();
-            margin-bottom: 0.08rem;
             top: 1.2rem;
-            box-shadow: 0px 2px 2px 0px rgba(0, 0, 0, 0.2);
             .flex(space-around, flex-start);
             > .tab-item {
                 width: 1.5rem;

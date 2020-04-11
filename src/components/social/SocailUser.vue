@@ -1,52 +1,42 @@
 <template>
-<div>
-  <div class="person">
+<div class="socailuser">
     <div class="user" v-for="user in userData" :key="user.id">
-      <div class="tabline">
-        <div class="avaturl"></div>
+        <div class="tabline">
+        <div class="avaturl" :style="`border: 0.03rem solid${user.avaturl};`"></div>
         <div class="inf">
-          <span class="name">{{user.name}}</span>
-          <span class="time">{{user.time}}</span>
+            <span class="name">{{user.name}}</span>
+            <span class="time">{{user.time}}</span>
         </div>
+        <div class="look" v-if="user.toLook">关注</div>
         <div class="menu">. . .</div>
-      </div>
-      <div class="content">
-        <div class="pic"></div>
-        <div class="word">
-          <div class="title">{{user.title}}</div>
-          <div class="cont">{{user.content}}</div>
         </div>
-      </div>
-      <div class="line"></div>
-      <div class="btn">
+        <div class="content">
+        <div class="pic" :style="`backgroundColor:${user.imgurl};`"></div>
+        <div class="word">
+            <div class="title">{{user.title}}</div>
+            <div class="cont">{{user.content}}</div>
+        </div>
+        </div>
+        <div class="line"></div>
+        <div class="btn">
         <div>评论</div>
         <div>分享 {{user.shareTime}}</div>
         <div>点赞 {{user.likeTime}}</div>
-      </div>
+        </div>
     </div>
-  </div>
-  <button class="button">写文章 / 写笔记</button>
 </div>
-
 </template>
 
 <script>
 export default {
-  name: 'socialpersion',
+  name: 'socialuser',
   props: {userData: Array}
 }
 </script>
 
-<style lang="less">
-.person {
-  .wh(100vw, auto);
-  // padding-bottom: 3rem;
-  overflow-y: scroll;
-  -webkit-overflow-scrolling: touch;
+<style lang="less" scoped>
+.socailuser {
   background-color: rgb(248, 248, 248);
-  @media @long {
-    // height: 81vh;
-  }
   > div {
     background-color: #ffffff;
   }
@@ -65,7 +55,6 @@ export default {
       > .avaturl {
         .wh(0.6rem);
         border-radius: 50%;
-        border: 0.03rem solid #f39800;
         margin: 0 0.16rem 0 0.32rem;
       }
       > .inf {
@@ -82,9 +71,22 @@ export default {
           color: #989898;
         }
       }
+      > .look {
+        position: absolute;
+        top: 0.28rem;
+        right: 0.82rem;
+        .wh(0.7rem,0.28rem);
+        border-radius: 0.1rem;
+        border: solid 0.01rem #1f7beb;
+        font-size: 0.2rem;
+        text-align: center;
+        color: #1f7beb;
+      }
       > .menu {
         .p-a();
-        top: 0.41rem;
+        height: 0.04rem;
+        line-height: 0.04rem;
+        top: 0.36rem;
         right: 0.38rem;
         font-size: 0.24rem;
         font-weight: bold;
@@ -137,19 +139,5 @@ export default {
       }
     }
   }
-}
-.button {
-  position: fixed;
-  z-index: 99;
-  bottom: 1.05rem;
-  .wh(6.84rem, 0.88rem);
-  margin: 0 0.34rem;
-	background-color: #1f7beb;
-	box-shadow: 0px 2px 2px 0px 
-		rgba(0, 0, 0, 0.2);
-	border-radius: 10px;
-  border: solid 1px #1f7beb;
-  color: #ffffff;
-  font-size: 0.3rem;
 }
 </style>

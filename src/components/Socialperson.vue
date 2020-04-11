@@ -1,71 +1,51 @@
 <template>
+<div>
   <div class="person">
-    <div class="user">
+    <div class="user" v-for="user in userData" :key="user.id">
       <div class="tabline">
         <div class="avaturl"></div>
         <div class="inf">
-          <span class="name">本人用户名</span>
-          <span class="time">今天 10:33</span>
+          <span class="name">{{user.name}}</span>
+          <span class="time">{{user.time}}</span>
         </div>
         <div class="menu">. . .</div>
       </div>
       <div class="content">
         <div class="pic"></div>
         <div class="word">
-          <div class="title">用户动态的标题</div>
-          <div
-            class="cont"
-          >内容摘要内容摘要内容摘要内容摘要内容摘要内容摘要内容摘要内容摘要内容摘要内容摘要内容摘要内容摘要内容摘要内容摘要内容摘要内容摘要内容摘要内容摘要内容摘要</div>
+          <div class="title">{{user.title}}</div>
+          <div class="cont">{{user.content}}</div>
         </div>
       </div>
       <div class="line"></div>
       <div class="btn">
         <div>评论</div>
-        <div>分享 6</div>
-        <div>点赞 3</div>
-      </div>
-    </div>
-    <div class="user">
-      <div class="tabline">
-        <div class="avaturl"></div>
-        <div class="inf">
-          <span class="name">用户名</span>
-          <span class="time">今天 10:33</span>
-        </div>
-        <div class="menu">. . .</div>
-      </div>
-      <div class="content">
-        <div class="pic"></div>
-        <div class="word">
-          <div class="title">用户动态的标题</div>
-          <div
-            class="cont"
-          >内容摘要内容摘要内容摘要内容摘要内容摘要内容摘要内容摘要内容摘要内容摘要内容摘要内容摘要内容摘要内容摘要内容摘要内容摘要内容摘要内容摘要内容摘要内容摘要</div>
-        </div>
-      </div>
-      <div class="line"></div>
-      <div class="btn">
-        <div>评论</div>
-        <div>分享 6</div>
-        <div>点赞 3</div>
+        <div>分享 {{user.shareTime}}</div>
+        <div>点赞 {{user.likeTime}}</div>
       </div>
     </div>
   </div>
+  <button class="button">写文章 / 写笔记</button>
+</div>
+
 </template>
 
 <script>
-export default {};
+export default {
+  name: 'socialpersion',
+  props: {userData: Array}
+}
 </script>
 
 <style lang="less">
 .person {
-  .wh(100vw, 75vh);
-  padding-bottom: 3rem;
+  .wh(100vw, auto);
+  // padding-bottom: 3rem;
   overflow-y: scroll;
   -webkit-overflow-scrolling: touch;
   background-color: rgb(248, 248, 248);
   @media @long {
-    height: 81vh;
+    // height: 81vh;
   }
   > div {
     background-color: #ffffff;
@@ -85,24 +65,20 @@ export default {};
       > .avaturl {
         .wh(0.6rem);
         border-radius: 50%;
-        border: 1px solid #000000;
+        border: 0.03rem solid #f39800;
         margin: 0 0.16rem 0 0.32rem;
       }
       > .inf {
         height: 0.65rem;
-        .flex-column();
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
         > .name {
           font-size: 0.3rem;
-          font-weight: normal;
-          font-stretch: normal;
-          letter-spacing: 0px;
           color: #000000;
         }
         > .time {
           font-size: 0.2rem;
-          font-weight: normal;
-          font-stretch: normal;
-          letter-spacing: 0px;
           color: #989898;
         }
       }
@@ -118,13 +94,13 @@ export default {};
       }
     }
     > .content {
-      .wh(90%, 1.95rem);
+      .wh(6.74rem, 1.95rem);
       .center-row();
       .flex(space-between);
       margin-top: 0.16rem;
       > .pic {
         .wh(1.78rem, 1.95rem);
-        background-color: #fff45c;
+        background-color: #f39800;
         border-radius: 0.1rem;
       }
       > .word {
@@ -132,16 +108,10 @@ export default {};
         .flex-column(space-between, flex-start);
         > .title {
           font-size: 0.32rem;
-          font-weight: normal;
-          font-stretch: normal;
-          letter-spacing: 0px;
           color: #000000;
         }
         > .cont {
           font-size: 0.24rem;
-          font-weight: normal;
-          font-stretch: normal;
-          letter-spacing: 0px;
           color: #000000;
         }
       }
@@ -163,12 +133,23 @@ export default {};
         text-align: center;
         line-height: 0.58rem;
         font-size: 0.2rem;
-        font-weight: normal;
-        font-stretch: normal;
-        letter-spacing: 0px;
         color: #989898;
       }
     }
   }
+}
+.button {
+  position: fixed;
+  z-index: 99;
+  bottom: 1.05rem;
+  .wh(6.84rem, 0.88rem);
+  margin: 0 0.34rem;
+	background-color: #1f7beb;
+	box-shadow: 0px 2px 2px 0px 
+		rgba(0, 0, 0, 0.2);
+	border-radius: 10px;
+  border: solid 1px #1f7beb;
+  color: #ffffff;
+  font-size: 0.3rem;
 }
 </style>

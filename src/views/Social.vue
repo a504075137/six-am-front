@@ -19,10 +19,9 @@
             </div>
         </header>
         <section class="section">
-
-            <Socialwatch v-show="activeTab === 1" />
+            <Socialwatch v-show="activeTab === 1"/>
             <Socialrecom v-show="activeTab === 2" />
-            <Socialperson v-show="activeTab === 3" />
+            <Socialperson v-show="activeTab === 3" :userData="userData"/>
         </section>
     </div>
 </template>
@@ -43,7 +42,36 @@ export default {
     data() {
         return {
             activeTab: 1,
-            activeFoot: 0
+            activeFoot: 0,
+            userData: [
+                {
+                    name: '本人用户名',
+                    time: '今天 10.33',
+                    title: '用户动态的标题',
+                    content: '内容摘要内容摘要内容摘要内容摘要内容摘要内容摘要内容摘要内容摘要内容摘要内容摘要内容摘要内容摘要内容摘要内容摘要内容摘要内容摘要内容摘要内容摘要内容摘要',
+                    shareTime: 9,
+                    likeTime: 3,
+                    id: 1
+                },
+                {
+                    name: '本人用户名',
+                    time: '今天 10.33',
+                    title: '用户动态的标题',
+                    content: '内容摘要内容摘要内容摘要内容摘要内容摘要内容摘要内容摘要内容摘要内容摘要内容摘要内容摘要内容摘要内容摘要内容摘要内容摘要内容摘要内容摘要内容摘要内容摘要',
+                    shareTime: 9,
+                    likeTime: 3,
+                    id: 2
+                },
+                {
+                    name: '本人用户名',
+                    time: '今天 10.33',
+                    title: '用户动态的标题',
+                    content: '内容摘要内容摘要内容摘要内容摘要内容摘要内容摘要内容摘要内容摘要内容摘要内容摘要内容摘要内容摘要内容摘要内容摘要内容摘要内容摘要内容摘要内容摘要内容摘要',
+                    shareTime: 9,
+                    likeTime: 3,
+                    id: 3
+                }
+            ]
         };
     },
     methods: {
@@ -82,20 +110,28 @@ export default {
         > .tab {
             .wh(100vw, 0.6rem);
             .p-a();
+            margin-bottom: 0.08rem;
             top: 1.2rem;
+            box-shadow: 0px 2px 2px 0px rgba(0, 0, 0, 0.2);
             .flex(space-around, flex-start);
             > .tab-item {
                 width: 1.5rem;
                 text-align: center;
                 height: 0.5rem;
                 font-size: 0.3rem;
-                font-weight: normal;
-                font-stretch: normal;
-                letter-spacing: 0px;
                 color: #989898;
                 &.active {
+                    position: relative;
                     color: #000000;
-                    border-bottom: 0.02rem solid #1f7beb;
+                    &::after {
+                        content: '';
+                        position: absolute;
+                        left: 0.62rem;
+                        bottom: 0.1rem;
+                        width: 0.28rem;
+                        height: 0.02rem;
+                        background-color: #1f7beb;
+                    }
                 }
             }
         }

@@ -32,16 +32,16 @@ export default {
       this.activeFoot = index;
       switch (index) {
         case 0:
-          this.$router.replace("home");
+          this.$router.replace({name: 'home'});
           break;
         case 1:
-          this.$router.replace("study");
+          this.$router.replace({name: "Study"});
           break;
         case 2:
-          this.$router.replace("social");
+          this.$router.replace({name: "social"});
           break;
         case 3:
-          this.$router.replace("mine");
+          this.$router.replace({name: "mine"});
           break;
       }
     }

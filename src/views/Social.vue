@@ -2,8 +2,7 @@
     <div class="social">
         <header class="header">
             <div class="title">优课圈</div>
-            <div class="search">
-            </div>
+            <div class="search" @click="toSearch"></div>
             <div class="tab"
                  @click="switchTab($event)">
                 <div class="tab-item"
@@ -131,6 +130,10 @@ export default {
         };
     },
     methods: {
+        toSearch () {
+            console.log('dfdf')
+            this.$router.push('/social/search')
+        },
         switchTab(e) {
             const v = e.target.dataset.v;
             if (v) {

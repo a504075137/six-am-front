@@ -4,6 +4,7 @@ import Home from '../views/Home.vue'
 import Recommend from '../views/HomeRecommend.vue'
 import Mine from '../views/Mine.vue'
 import Social from '../views/Social.vue'
+import SocialSearch from '../views/SocialSearch'
 import Study from '../views/Study.vue'
 Vue.use(VueRouter)
 const routes = [
@@ -30,6 +31,11 @@ const routes = [
     path: '/social',
     name: 'social',
     component: Social
+  },
+  {
+    path: '/social/search',
+    name: 'search',
+    component: SocialSearch
   },
   {
     path: '/study',

@@ -1,6 +1,6 @@
 <template>
   <div>
-    <Navigatehead>
+    <Navigatehead :hasBorder="$bus.myItem !== 1">
       <div slot="head">{{headList[$bus.myItem]}}</div>
       <div class="back icon" @click="goBack" slot="icon">{{back}}</div>
     </Navigatehead>
@@ -23,7 +23,7 @@ export default {
     return {
       headList: [
         "设置",
-        "打卡",
+        "",
         "已购课程",
         "激活码激活",
         "账户充值",

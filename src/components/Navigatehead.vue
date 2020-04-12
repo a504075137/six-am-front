@@ -1,5 +1,5 @@
 <template>
-  <header class="header">
+  <header class="header" :class="hasBorder? 'box-shadow' : ''">
     <slot name="icon"></slot>
     <div class="head">
       <slot name="head"></slot>
@@ -9,7 +9,8 @@
 
 <script>
 export default {
-  name: "Navigatehead"
+  name: "Navigatehead",
+  props: { hasBorder: true }
 };
 </script>
 
@@ -26,7 +27,6 @@ export default {
   letter-spacing: 0px;
   color: #000000;
   background-color: #ffffff;
-  box-shadow: 0rem 0.02rem 0.12rem 0rem rgba(0, 0, 0, 0.2);
   > .icon {
     // .p-a();
     // top: 0.24rem;
@@ -35,5 +35,8 @@ export default {
   > .head {
     .center-row();
   }
+}
+.box-shadow {
+  box-shadow: 0rem 0.02rem 0.12rem 0rem rgba(0, 0, 0, 0.2);
 }
 </style>

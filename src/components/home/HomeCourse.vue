@@ -5,7 +5,7 @@
         <div class="search" v-if="title.option" @click="title.clickEvent">{{title.option}} ></div>
     </div>
     <div class="course">
-        <div class="singleContent" @click="item.toPurcase" v-for="item in courseList" :key="item.id">
+        <div class="singleContent" @click="clickCourse(item)" v-for="item in courseList" :key="item.id">
             <div class="courseImg" :style="`backgroundColor: ${item.imgColor};`"></div>
             <div class="courseContent">
                 <div class="title">{{item.title}}</div>
@@ -24,7 +24,12 @@
 <script>
 export default {
     name: 'homecourse',
-    props: ['courseList', 'title', 'changeList']
+    props: ['courseList', 'title', 'changeList'],
+    methods: {
+        clickCourse (item) {
+            if (item.toPurcase) item.toPurcase()
+        }
+    }
 }
 </script>
 

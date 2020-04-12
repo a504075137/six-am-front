@@ -50,7 +50,7 @@ export default {
   watch: {
     $route(n, o) {
       console.log(n.name === 'StudyItem')
-      if (n.name === 'StudyItem' || n.name === "MineItem") this.noFooter = true
+      if (n.name === 'StudyItem' || n.name === "MineItem" || n.name === 'Course') this.noFooter = true
       else this.noFooter = false
     }
   },

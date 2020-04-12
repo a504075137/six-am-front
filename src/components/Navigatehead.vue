@@ -4,6 +4,7 @@
     <div class="head">
       <slot name="head"></slot>
     </div>
+    <slot name="more"></slot>
   </header>
 </template>
 

@@ -35,6 +35,7 @@ export default {
             title: { name: '主编推荐', option: '查看全部', clickEvent: this.clickMore},
             courseList: [
                 {
+                    toPurcase: () => {this.toPurcase(0)},
                     title: '推荐课程的标题',
                     content: '内容摘要内容摘要内容摘要内容摘要内容摘要内容摘要内容摘要内容摘要内容摘要内容摘要内容摘要内容摘要内容摘要内容摘要内容摘要内容摘要',
                     level: '零基础',
@@ -43,6 +44,7 @@ export default {
                     id: 1
                 },
                 {
+                    toPurcase: () => {this.toPurcase(1)},
                     title: '推荐课程的标题',
                     content: '内容摘要内容摘要内容摘要内容摘要内容摘要内容摘要内容摘要内容摘要内容摘要内容摘要内容摘要内容摘要内容摘要内容摘要内容摘要内容摘要',
                     level: '初级',
@@ -51,6 +53,7 @@ export default {
                     id: 2
                 },
                 {
+                    toPurcase: () => {this.toPurcase(0)},
                     title: '推荐课程的标题',
                     content: '内容摘要内容摘要内容摘要内容摘要内容摘要内容摘要内容摘要内容摘要内容摘要内容摘要内容摘要内容摘要内容摘要内容摘要内容摘要内容摘要',
                     level: '中级',
@@ -62,6 +65,10 @@ export default {
         }
     },
     methods: {
+        toPurcase (index) {
+            this.$bus.courseIndex = index
+            this.$router.push({name: 'Course'})
+        },
         chanIndex(index) {
             this.activeIndex = index;
         },

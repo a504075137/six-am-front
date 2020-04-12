@@ -20,7 +20,8 @@ const bus = new Vue({
                 wxappid: ''
             },
             myItem: 0,
-            studyItem: 0
+            studyItem: 0,
+            courseIndex: 0
         };
     },
     created() {

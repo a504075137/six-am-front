@@ -6,6 +6,7 @@ import Mine from '../views/Mine.vue'
 import Social from '../views/Social.vue'
 import SocialSearch from '../views/SocialSearch'
 import Study from '../views/Study.vue'
+import Course from '../views/Course'
 Vue.use(VueRouter)
 const routes = [
   {
@@ -46,6 +47,11 @@ const routes = [
     path: '/StudyItem',
     name: 'StudyItem',
     component: () => import(/* webpackChunkName: "study" */ '../views/StudyItem')
+  },
+  {
+    path: '/course',
+    name: 'Course',
+    component: Course
   },
   {
     path: '/MineItem',

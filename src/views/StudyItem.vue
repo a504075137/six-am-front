@@ -21,8 +21,8 @@ export default {
             headList: [
                 '外教课程',
                 '沉浸课程',
-                '视频课程',
-                '音频课程'
+                '音频课程',
+                '视频课程'
             ],  
             componentList: ['OutMode', 'InMode', 'AudioMode', 'VideoMode']
         }

@@ -9,7 +9,7 @@
       <div class="nickName">用户名/昵称</div>
       <div class="userid">ID：12345678</div>
     </div>
-    <div class="vip"></div>
+    <div class="vip" @click="jumptoVip"></div>
     <div class="inputTabWrapper">
       <InputTab
         class="inputTab"
@@ -66,6 +66,10 @@ export default {
       console.log(index);
       this.$bus.myItem = index;
       this.$router.replace("MineItem");
+    },
+    jumptoVip () {
+      this.$bus.myItem = 6
+      this.$router.replace("MineItem")
     }
   }
 };

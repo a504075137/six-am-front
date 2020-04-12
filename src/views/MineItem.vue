@@ -15,9 +15,10 @@ import Course from '@c/Mine/Course'
 import Active from '@c/Mine/Active'
 import Purcase from '@c/Mine/Purcase'
 import About from '@c/Mine/About'
+import Vip from '@c/Mine/Vip'
 export default {
   name: "mineItem",
-  components: {Setting, Sign, Course, Active, Purcase, About},
+  components: {Setting, Sign, Course, Active, Purcase, About, Vip},
   data() {
     return {
       headList: [
@@ -26,9 +27,10 @@ export default {
         "已购课程",
         "激活码激活",
         "账户充值",
-        "关于我们"
+        "关于我们",
+        "开通VIP"
       ],
-      componentList: ['Setting', 'Sign', 'Course', 'Active', 'Purcase', 'About'],
+      componentList: ['Setting', 'Sign', 'Course', 'Active', 'Purcase', 'About', 'Vip'],
       back: "<"
     };
   },

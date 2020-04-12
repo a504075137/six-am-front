@@ -13,17 +13,19 @@
 import CourseDetail from '@c/course/CourseDetail'
 import CoursePurcase from '@c/course/CoursePurcase'
 import OutChoose from '@c/course/OutChoose'
+import CourseSign from '@c/course/CourseSign'
 export default {
   name: "courseItem",
-  components: {CourseDetail, CoursePurcase, OutChoose},
+  components: {CourseDetail, CoursePurcase, OutChoose, CourseSign},
   data() {
     return {
       headList: [
         "课程缴费",
         "",
-        "课程名称"
+        "课程名称",
+        ""
       ],
-      componentList: ['CoursePurcase', 'OutChoose', 'CourseDetail'],
+      componentList: ['CoursePurcase', 'OutChoose', 'CourseDetail', 'CourseSign'],
       back: "<",
       showMore: false
     };

@@ -10,7 +10,7 @@
                     <div class="num">No.28</div>
                     <div class="lookMore">查看全部排行></div>
                 </div>
-                <div class="sign"></div>
+                <div class="sign" @click="toSign"></div>
             </div>
         </div>
         <div class="study">
@@ -52,6 +52,10 @@ export default {
         }
     },
     methods: {
+        toSign () {
+            this.$bus.courseIndex = 3
+            this.$router.push({name: 'Course'})
+        },
         toStudy (index) {
             this.$bus.studyItem = index;
             this.$router.push("StudyItem")

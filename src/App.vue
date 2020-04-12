@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <router-view />
-    <footer class="footer" v-show="$router.currentRoute.path !== '/MineItem' ">
+    <footer class="footer" v-show="!noFooter">
       <div
         class="foot-item"
         v-for="(item,index) in footList"
@@ -21,7 +21,8 @@ export default {
   data() {
     return {
       activeFoot: 0,
-      footList: ["首页", "学习", "社群", "我的"]
+      noFooter: false,
+      footList: ["发现", "学习", "社群", "我的"]
     };
   },
   methods: {
@@ -44,6 +45,13 @@ export default {
           this.$router.replace({name: "mine"});
           break;
       }
+    }
+  },
+  watch: {
+    $route(n, o) {
+      console.log(n.name === 'StudyItem')
+      if (n.name === 'StudyItem' || n.name === "MineItem") this.noFooter = true
+      else this.noFooter = false
     }
   },
   mounted() {

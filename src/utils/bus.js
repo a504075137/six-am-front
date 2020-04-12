@@ -19,7 +19,8 @@ const bus = new Vue({
                 unionid: '',
                 wxappid: ''
             },
-            myItem: 0
+            myItem: 0,
+            studyItem: 0
         };
     },
     created() {

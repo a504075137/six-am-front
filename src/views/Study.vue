@@ -24,7 +24,7 @@
         </div>
         <div class="inStudy">
             <div class="title">在学课程</div>
-            <div class="content" v-for="mode in modeList" :key="mode.title">
+            <div class="content" v-for="mode in modeList" @click="toStudy(mode.mode)" :key="mode.title">
                 <div class="img" :style="`backgroundColor:${mode.img};`"></div>
                 <div class="detail">
                     <div class="title">{{mode.title}}</div>
@@ -46,9 +46,15 @@ export default {
                 {num: 10, name: '完成课程', unit: '节'}
             ],
             modeList: [
-                {img: '#8957a1', title: '外教模式', content: '内容摘要内容摘要内容摘要内容摘要内容摘要内容摘要内容摘要内容摘要内容摘要内容摘要内容摘要内容摘要内容摘要内容摘要内容摘要内容摘要内容摘要内容摘要内容摘要'},       
-                {img: '#8fc31f', title: '沉浸模式', content: '内容摘要内容摘要内容摘要内容摘要内容摘要内容摘要内容摘要内容摘要内容摘要内容摘要内容摘要内容摘要内容摘要内容摘要内容摘要内容摘要内容摘要内容摘要内容摘要'}
+                {img: '#8957a1', title: '外教模式', mode: 0, content: '内容摘要内容摘要内容摘要内容摘要内容摘要内容摘要内容摘要内容摘要内容摘要内容摘要内容摘要内容摘要内容摘要内容摘要内容摘要内容摘要内容摘要内容摘要内容摘要'},       
+                {img: '#8fc31f', title: '沉浸模式', mode: 1, content: '内容摘要内容摘要内容摘要内容摘要内容摘要内容摘要内容摘要内容摘要内容摘要内容摘要内容摘要内容摘要内容摘要内容摘要内容摘要内容摘要内容摘要内容摘要内容摘要'}
             ]
+        }
+    },
+    methods: {
+        toStudy (index) {
+            this.$bus.studyItem = index;
+            this.$router.push("StudyItem")
         }
     }
 }
